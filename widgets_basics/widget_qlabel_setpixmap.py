@@ -10,15 +10,11 @@ class MyMainWindow(QMainWindow):
 
         self.setWindowTitle("My Awesome Main Window")
 
-        checkbox = QCheckBox()
-        checkbox.setCheckState(Qt.Checked)
-        checkbox.stateChanged.connect(self.show_state)
+        label = QLabel("AWESOME LABEL")
+        # label.setScaledContents(False)
+        label.setPixmap(QPixmap('/Users/samrullo/Downloads/samira_photo.JPG'))
 
-        self.setCentralWidget(checkbox)
-
-    def show_state(self, s):
-        print(s == Qt.Checked)
-        print(s)
+        self.setCentralWidget(label)
 
 
 app = QApplication(sys.argv)

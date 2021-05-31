@@ -10,15 +10,13 @@ class MyMainWindow(QMainWindow):
 
         self.setWindowTitle("My Awesome Main Window")
 
-        checkbox = QCheckBox()
-        checkbox.setCheckState(Qt.Checked)
-        checkbox.stateChanged.connect(self.show_state)
+        label = QLabel("AWESOME LABEL")
+        font = label.font()
+        font.setPointSize(30)
+        label.setFont(font)
+        label.setAlignment(Qt.AlignCenter | Qt.AlignVCenter)
 
-        self.setCentralWidget(checkbox)
-
-    def show_state(self, s):
-        print(s == Qt.Checked)
-        print(s)
+        self.setCentralWidget(label)
 
 
 app = QApplication(sys.argv)

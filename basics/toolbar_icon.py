@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import sys
+import os
 
 
 class MyMainWindow(QMainWindow):
@@ -18,9 +19,10 @@ class MyMainWindow(QMainWindow):
         self.setCentralWidget(label)
 
         toolbar = QToolBar('My toolbar')
+        toolbar.setIconSize(QSize(16,16))
         self.addToolBar(toolbar)
 
-        button_action = QAction('My Action', self)
+        button_action = QAction(QIcon(os.path.relpath('../icons/bug.png')),'My Action', self)
         button_action.setStatusTip('My Action status tip')
         button_action.triggered.connect(self.onActionTriggered)
         button_action.setCheckable(True)
